@@ -95,6 +95,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion(){
@@ -169,6 +170,10 @@
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
+          //console.log('paramId-optionId', paramId + '-' + optionId);
+
+          const activeImage = thisProduct.imageWrapper.querySelector('.'+paramId + '-' + optionId);
+
           //console.log('optionId, option: ', optionId, option);
           //console.log('formData[paramId]:', formData[paramId]);
           //if(formData[paramId].includes(optionId)) { console.log('Wybrano '+optionId); }
@@ -178,6 +183,15 @@
             //console.log('optionId, option: ', optionId, option);
             //console.log('formData[paramId]:', formData[paramId]);
             //console.log('option[default]:', option['default']);
+
+
+            if(activeImage != null){
+              activeImage.classList.add(classNames.menuProduct.imageVisible);
+              //console.log('activeImage:', activeImage);
+            }
+
+
+
             if(option['default']) {
               //console.log('t02');
               //console.log('price: ', optionId + ' ' + option['price']);
@@ -187,6 +201,13 @@
             }
           }
           else{
+
+            if(activeImage != null){
+              activeImage.classList.remove(classNames.menuProduct.imageVisible);
+              //console.log('activeImage:', activeImage);
+            }
+
+
             if(option['default']) {
               price = price - option['price'];
             }
