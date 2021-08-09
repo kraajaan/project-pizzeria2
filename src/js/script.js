@@ -129,7 +129,9 @@
     getElements(){
       const thisProduct = this;
 
-      thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+      thisProduct.dom = {};
+
+      thisProduct.dom.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
       thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
@@ -145,7 +147,7 @@
       //const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
 
       /* START: add event listener to clickable trigger on event click */
-      thisProduct.accordionTrigger.addEventListener('click', function(event) {
+      thisProduct.dom.accordionTrigger.addEventListener('click', function(event) {
 
         /* prevent default action for event */
         event.preventDefault();
@@ -361,12 +363,17 @@
   class Cart{
     constructor(element){
       const thisCart = this;
+      //console.log('element: ', element);
+      //console.log('new Cart1: ', thisCart);
 
       thisCart.products = [];
 
-      thisCart.getElements(element);
+      //console.log('new Cart2: ', thisCart);
 
-      console.log('new Cart: ', thisCart);
+      thisCart.getElements(element);
+      thisCart.initActions();
+
+      //console.log('new Cart3: ', thisCart);
     }
 
     getElements(element){
@@ -375,6 +382,19 @@
       thisCart.dom = {};
 
       thisCart.dom.wrapper = element;
+      //console.log('thisCart.dom.wrapper: ', thisCart.dom.wrapper);
+      thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+    }
+
+    initActions(){
+      const thisCart = this;
+
+      thisCart.dom.toggleTrigger.addEventListener('click', function(){
+        event.preventDefault();
+        console.log('test10');
+        thisCart.dom.wrapper.classList.toggle(classNames.menuProduct.wrapperActive);
+      });
+
     }
   }
 
@@ -396,6 +416,15 @@
       thisApp.data = dataSource;
     },
 
+    initCart: function(){
+      const thisApp = this;
+
+      const cartElem = document.querySelector(select.containerOf.cart);
+      //console.log('cartElem: ', cartElem);
+      thisApp.cart = new Cart(cartElem);
+      //console.log('thisApp.cart: ', thisApp.cart);
+    },
+
     init: function(){
       const thisApp = this;
       console.log('*** App starting ***');
@@ -406,7 +435,10 @@
 
       thisApp.initData();
       thisApp.initMenu();
+      thisApp.initCart();
     },
+
+
   };
 
   app.init();
