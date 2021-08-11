@@ -508,6 +508,7 @@
 
       /* add product to final cart */
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+      console.log('thisCart.products: ', thisCart.products);
 
       //console.log('thisCart.products: ', thisCart.products);
 

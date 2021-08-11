@@ -60,7 +60,7 @@
   <div id="product-list" class="product-list container"></div>
 
   <script id="template-cart-product" type="text/x-handlebars-template">
-    <li>
+    <li tokenid="{{ tokenId }}">
       <div class="widget-amount"> <!-- widget-amount -->
         <a class="btn-quantity btn-quantity--lt" href="#less"><i class="fas fa-minus"></i></a>
         <input class="amount" type="text" value="{{ amount }}">
@@ -69,7 +69,7 @@
       <div class="cart__product">
         <div class="cart__product-header">
           <span>{{ name }}</span>
-          <span>$<strong class="cart__product-price">{{ price }}</strong></span>
+          <span>$<strong class="cart__product-price">{{ priceSingle }}</strong></span>
         </div>
         <ul class="cart__product-details no-spacing">
           {{#each params}}
