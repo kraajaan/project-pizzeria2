@@ -36,6 +36,7 @@ utils.serializeFormToObject = function(form){
   return output;
 };
 
+// CODE ADDED IN MOD 10
 utils.convertDataSourceToDbJson = function(){
   const productJson = [];
   for(let key in dataSource.products){
@@ -44,6 +45,32 @@ utils.convertDataSourceToDbJson = function(){
 
   console.log(JSON.stringify({product: productJson, order: []}, null, '  '));
 };
+
+utils.queryParams = function(params){
+  return Object.keys(params)
+    .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
+    .join('&');
+};
+utils.numberToHour = function(number){
+  return (Math.floor(number) % 24) + ':' + (number % 1 * 60 + '').padStart(2, '0');
+};
+
+utils.hourToNumber = function(hour){
+  const parts = hour.split(':');
+
+  return parseInt(parts[0]) + parseInt(parts[1])/60;
+};
+
+utils.dateToStr = function(dateObj){
+  return dateObj.toISOString().slice(0, 10);
+};
+
+utils.addDays = function(dateStr, days){
+  const dateObj = new Date(dateStr);
+  dateObj.setDate(dateObj.getDate() + days);
+  return dateObj;
+};
+// CODE END IN MOD 10
 
 Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
