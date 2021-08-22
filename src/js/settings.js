@@ -93,7 +93,7 @@ export const classNames = {
 
 export const settings = {
   amountWidget: {
-    defaultValue: 1,
+    defaultValue: 3,
     defaultMin: 1,
     defaultMax: 10,
   }, // CODE CHANGED
