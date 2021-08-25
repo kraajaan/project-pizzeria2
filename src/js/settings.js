@@ -60,9 +60,17 @@ export const select = {
   },
   // CODE ADDED END
   booking: {
+    bookingForm: '.booking-form',
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
+    date: '.booking-form [name="date"]',
+    hour: '.booking-form [name="hour"]',
+    people: '.booking-form [name="people"]',
+    duration: '.booking-form [name="hours"]',
+    phone: '.booking-form [name="phone"]',
+    address: '.booking-form [name="address"]',
+    starters: '.booking-form [name="starter"]',
   },
   nav: {
     links: '.main-nav a',
@@ -82,6 +90,7 @@ export const classNames = {
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
+    tableSelected: 'selected',
   },
   nav: {
     active: 'active',
