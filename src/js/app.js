@@ -1,7 +1,9 @@
 import {select, classNames, settings} from './settings.js';
+// import * as settings from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 export let token = 1;
 export function incToken() {
@@ -10,7 +12,7 @@ export function incToken() {
 export function setToken(a) {
   token = a;
 }
-// eslint-disable-line no-unused-vars
+
 const app = {
 
   initPages: function(){
@@ -116,6 +118,16 @@ const app = {
     }
   },
 
+  initHome: function(){
+    const thisApp = this;
+
+    const homeElem = document.querySelector(select.containerOf.homePage);
+
+    thisApp.home = new Home(homeElem);
+    console.log('thisApp.home:',thisApp.home);
+
+  },
+
   initCart: function(){
     const thisApp = this;
 
@@ -140,8 +152,8 @@ const app = {
 
     thisApp.initPages();
 
-
     thisApp.initData();
+    thisApp.initHome();
     thisApp.initCart();
     thisApp.initBooking();
   },

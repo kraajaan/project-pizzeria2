@@ -125,7 +125,7 @@ class Booking{
       thisBooking.booked[date][hourBlock].push(table);
     }
 
-    console.log('thisBooking.booked:', thisBooking.booked);
+    // console.log('thisBooking.booked:', thisBooking.booked);
 
   }
 
@@ -193,7 +193,7 @@ class Booking{
     thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(select.booking.phone);
     thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.starters);
 
-    console.log('thisBooking.dom.date:', thisBooking.dom.date);
+    console.log('thisBooking.dom.wrapper:', thisBooking.dom.wrapper);
 
 
   }
@@ -217,6 +217,14 @@ class Booking{
       });
     }
 
+    // const floor = thisBooking.dom.podloga;
+    // floor.addEventListener('click', function(e){
+    //   e.target.class == table ||
+    // });
+
+
+
+
     thisBooking.dom.form.addEventListener('submit', function(){
       event.preventDefault();
       if(thisBooking.selectedTable != 0){
@@ -229,11 +237,12 @@ class Booking{
     const thisBooking = this;
 
     const classSelected = classNames.booking.tableSelected;
-
+    // debugger;
     thisBooking.rmSelected();
 
     if(e.target.classList.contains('booked')){
-      setTimeout(alertBooked, 0);
+      // setTimeout(alertBooked, 0);
+      alert('This table is booked at a given time. Choose another table!');
     }
     else {
       e.target.classList.add(classSelected);
@@ -241,9 +250,9 @@ class Booking{
     }
     console.log('thisBooking.selectedTable:', thisBooking.selectedTable);
 
-    function alertBooked() {
-      alert('This table is booked at a given time. Choose another table!');
-    }
+    // function alertBooked() {
+    //   alert('This table is booked at a given time. Choose another table!');
+    // }
   }
 
   rmSelected(){

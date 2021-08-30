@@ -7,6 +7,8 @@ class BaseWidget{
 
     thisWidget.correctValue = initialValue;
 
+
+
   }
 
   get value(){

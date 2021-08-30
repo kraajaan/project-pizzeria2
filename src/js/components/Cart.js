@@ -69,6 +69,7 @@ class Cart{
 
   }
 
+
   add(menuProduct){
     const thisCart = this;
     //console.log('menuProduct: ', menuProduct);

@@ -1,0 +1,451 @@
+#pages {
+  > * {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}
+
+.home-wrapper {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+}
+
+.home-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 230px;
+}
+
+.home-top .row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 49%;
+}
+
+.home-top .row1 a {
+  display: block;
+  width: 49%;
+  text-decoration: none;
+}
+
+.home-top .row1 a .bg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: $color-light;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 100%;
+}
+
+.home-top .row1 .bg > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  top: 1rem;
+  transition: $transition2;
+}
+
+.home-top .row1 .bg > div > * {
+  margin: 0 auto;
+  transition: $transition2;
+}
+
+.home-top .row1 .bg > div > h2 {
+  font-family: $font-header;
+  font-weight: $font-normal;
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.home-top .row1 .bg > div > p {
+  font-family: $font-text;
+  font-weight: $font-light;
+  font-size: 0.8rem;
+  opacity: 0;
+}
+
+.home-top .row1 .bg:hover > div {
+  top: 0;
+  transition: $transition2;
+}
+
+.home-top .row1 .bg:hover > div > * {
+  opacity: 1;
+}
+
+.home-top .row2 {
+  background: $color-danger;
+  COLOR: $color-light;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 1rem 0rem;
+  height: 49%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-top .row2 h2 {
+  font-family: $font-header;
+  font-weight: $font-normal;
+  font-size: 1.5rem;
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 0.8rem;
+}
+
+.home-top .row2 p {
+  font-family: $font-text;
+  font-weight: $font-light;
+  display: inline-block;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.home-gallery {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.home-gallery > div {
+  flex: 0 0 31.3%;
+  margin: 1%;
+  height: 0;
+  padding-bottom: 30%;
+  border-radius: 5px;
+  position: relative;
+  transition: $transition2;
+}
+
+@for $i from 1 through 6 {
+  .home-gallery > div:nth-child(#{$i}) {
+    background-image: url(../../images/home/pizza-#{$i+3}.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.home-gallery > div::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+  opacity: 0;
+  transition: $transition2;
+}
+
+.home-gallery > div:hover::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+  opacity: 1;
+  transition: $transition2;
+}
+
+.home-gallery > div > div {
+  display: none;
+  position: absolute;
+  font-size: 2rem;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+
+.home-gallery > div:hover > div {
+  display: inline-block;
+  z-index: 2;
+  transition: $transition;
+}
+
+.home-gallery > div > div i {
+  color: $color-light;
+  z-index: 2;
+  transition: $transition;
+  margin: 0 5px;
+}
+
+.home-gallery > div > div i:hover {
+  color: $color-red;
+  transition: $transition;
+}
+
+
+// .home-top .row1 div span {
+//   display: block;
+//   position: relative;
+//   left: 0;
+//   top: 0;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   // transform: translate(-50%, -50%);
+// }
+//
+// .home-top .row1 div span > * {
+//   margin: 0;
+// }
+//
+// .home-top .row1 div span h2 {
+//   font-family: $font-header;
+//   font-weight: $font-normal;
+//   font-size: 1.5rem;
+// }
+
+// .home-top .row1 div:hover {
+//   transform: translateY(-20%);
+// }
+
+// .home-top .row1 div > * {
+//   margin: 0;
+//   transition: $transition2;
+// }
+//
+// .home-top .row1 div h2 {
+//   font-family: $font-header;
+//   font-weight: $font-normal;
+//   font-size: 1.5rem;
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
+// }
+//
+// .home-top .row1 div p {
+//   opacity: 0.5;
+// }
+//
+// .home-top .row1 div:hover > * {
+//   color: red;
+//   transition: $transition2;
+// }
+//
+// .home-top .row1 div:hover p {
+//   opacity: 1.0;
+// }
+
+.home-top .row1 > a:nth-child(1) > div {
+  background-image: url(../../images/home/pizza-1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.home-top .row1 > a:nth-child(2) > div {
+  background-image: url(../../images/home/pizza-2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+
+.booking-option-title {
+  @extend .h2;
+  display: block;
+  margin: 0 0 ($base-size * 2) 0;
+
+  > .widget-amount {
+    margin: ($base-size * 2) 0 0 0;
+  }
+
+}
+
+.page__title {
+  @extend .h1;
+  margin: 0 0 ($base-size * 4) 0;
+  text-align: center;
+}
+
+.time-picker {
+  @include flex(row, flex-start, space-between);
+  margin: 0 0 ($base-size * 4) 0;
+}
+
+.hour-picker {
+  position: relative;
+  width: 50%;
+
+  .output {
+    position: absolute;
+    right: 0;
+  }
+
+}
+
+.rangeSlider {
+  top: $base-size;
+  background: lighten($color-dark, 70%);
+  box-shadow: none;
+  height: $base-size;
+
+  &__handle {
+    box-shadow: none;
+    border: 0;
+    transition-timing-function: cubic-bezier(0, 1, 0, 1);
+    transition: transform 100ms;
+
+    &::after {
+      display: none;
+    }
+
+    &__horizontal {
+      width: ($base-size * 2);
+      height: ($base-size * 2);
+      top: -6px;
+      background: $color-dark;
+    }
+
+  }
+
+  &__fill {
+    background: $color-success;
+    transition-timing-function: cubic-bezier(0, 1, 0, 1);
+    transition: width 100ms;
+    box-shadow: none;
+  }
+}
+
+.flatpickr-day {
+  &.disabled {
+    color: lighten($color-dark, 60%);
+  }
+}
+
+.floor-plan {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border: 12px solid $color-dark;
+  margin: ($base-size * 4) auto;
+  background: linear-gradient(to right, #e9dfc4 0%, #e9dfc4 1%, #ede3c8 2%, #ede3c8 24%, #ebddc3 25%, #e9dfc4 48%, #ebddc3 49%, #e6d8bd 52%, #e6d8bd 53%, #e9dbc0 54%, #e6d8bd 55%, #e6d8bd 56%, #e9dbc0 57%, #e6d8bd 58%, #e6d8bd 73%, #e9dbc0 74%, #e9dbc0 98%, #ebddc3 100%);
+  background-size: ($base-size * 3);
+  background-repeat: repeat;
+
+  > * {
+    position: absolute;
+    text-align: center;
+    vertical-align: center;
+  }
+
+  .object {
+    @extend .h3;
+    background: #f7f1e3;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  }
+
+  .entry {
+    bottom: -24px;
+    left: 50%;
+    width: 100px;
+    height: 18px;
+    line-height: 17px;
+    transform: translate(-50%, -50%);
+    box-shadow: none;
+    background: #ede3c8;
+    border: 1px solid $color-dark;
+    border-width: 0 6px 0 6px;
+  }
+
+  .bar {
+    left: 0;
+    bottom: 50px;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .table {
+    @extend .h2;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+    cursor: pointer;
+
+    &--round {
+      border-radius: 50%;
+
+      &::after {
+        border-radius: 50%;
+      }
+
+    }
+
+    &.booked {
+      cursor: not-allowed;
+      color: lighten($color-dark, 40%);
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: $color-dark;
+        opacity: 0.4;
+      }
+
+    }
+
+    &.selected {
+      color: $color-dark;
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: $color-success;
+        opacity: 0.4;
+      }
+    }
+  }
+
+  [data-table="1"] {
+    left: 40px;
+    top: 40px;
+  }
+
+  [data-table="2"] {
+    right: 25px;
+    top: 25px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+
+  [data-table="3"] {
+    right: 40px;
+    top: 180px;
+  }
+}
+
+.booking-options {
+  @include flex(row, flex-start, space-between);
+  margin: ($base-size * 4) auto;
+}
