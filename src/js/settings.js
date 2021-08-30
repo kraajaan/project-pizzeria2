@@ -80,6 +80,7 @@ export const select = {
   home: {
     galleryTile: '.home-gallery div',
     galleryTiles: '.home-gallery',
+    homeCarousel: '.main-carousel',
   },
 };
 
