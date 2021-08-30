@@ -123,17 +123,21 @@ const app = {
     const thisApp = this;
 
     const homeElem = document.querySelector(select.containerOf.homePage);
-    const carouselElem = document.querySelector(select.home.homeCarousel);
+
 
     thisApp.home = new Home(homeElem);
+
+    const carouselElem = document.querySelector(select.home.homeCarousel);
     console.log('carouselElem:',carouselElem);
 
-    // thisApp.home.carousel = new HomeCarousel(carouselElem);
-
+    // eslint-disable-next-line no-undef
     thisApp.home.carousel = new Flickity(carouselElem, {
       // options
       cellAlign: 'left',
-      contain: true
+      contain: true,
+      wrapAround: true,
+      autoPlay: 4000,
+      prevNextButtons: false,
     });
 
 

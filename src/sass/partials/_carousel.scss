@@ -1,0 +1,42 @@
+.main-carousel {
+  margin: 4rem 0 2rem;
+  // background-color: red;
+}
+
+.carousel-cell {
+  width: 100%; /* full width */
+  height: 200px; /* height of carousel */
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.carousel-cell > div:nth-child(1){
+  flex: 0 0 35%;
+  margin: 0;
+  border-radius: 5px;
+  background-image: url(../../images/home/pizza-3.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-cell > div:nth-child(2){
+  flex: 0 0 65%;
+  padding: 0.75rem 2rem;
+  font-family: $font-text;
+}
+
+.carousel-cell > div:nth-child(2) > h2 {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-cell > div:nth-child(2) > :nth-child(2) {
+  letter-spacing: 0.0em;
+}
+
+.carousel-cell > div:nth-child(2) > :nth-child(3) {
+  font-style: italic;
+  letter-spacing: 0.2em;
+}
