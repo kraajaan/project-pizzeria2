@@ -4,7 +4,6 @@ import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
 import Home from './components/Home.js';
-// import HomeCarousel from './components/HomeCarousel.js';
 
 export let token = 1;
 export function incToken() {
