@@ -42,7 +42,7 @@ class Home{
       // let divGal = utils.createDOMFromHTML('<div><a href="'+ i +'"><i class="fas fa-heart"></i></a></div>');
 
       let divGal2 = document.createElement('div');
-      divGal2.innerHTML = '<div><a href="#"><i class="fas fa-heart"></i></a><a href="#"><i class="fas fa-share-alt"></i></a></div>';
+      divGal2.innerHTML = '<div><a href="#"><i class="fas fa-heart fav"></i></a><a href="#"><i class="fas fa-share-alt share"></i></a></div>';
       thisHome.dom.wholeGallery.appendChild(divGal2);
       // console.log('divGal:', divGal2);
     }

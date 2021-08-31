@@ -184,13 +184,16 @@
 .home-gallery > div > div i {
   color: $color-light;
   z-index: 2;
-  transition: $transition;
   margin: 0 5px;
+  transition: $transition;
 }
 
-.home-gallery > div > div i:hover {
+.home-gallery > div > div i.fav:hover {
   color: $color-red;
-  transition: $transition;
+}
+
+.home-gallery > div > div i.share:hover {
+  color: $color-blue;
 }
 
 
